@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  smit:
+    container_name: smit
+    build: .
+    volumes:
+      - './:/opt/app'
+      - '/opt/app/node_modules/'
+    ports:
+      - '3000:3000'
+    environment:
+      HOST: '0.0.0.0'
+      API_URL: 'https://raamatud-backend-3shdv.ondigitalocean.app'
