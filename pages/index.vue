@@ -8,23 +8,28 @@
           :key="book['id']"
           class="d-flex"
           three-line>
-          <v-list-item class="flex-column justify-center">
-            <v-img :src="imageBaseUrl + book['pildiNimi']"/>
+          <v-list-item>
+            <v-img
+              contain
+              :src="imageBaseUrl + book['pildiNimi']"
+              max-height="200"
+            />
           </v-list-item>
-          <v-list-item class="flex-column justify-center">
-            <div class="justify-start">
-              <h3>{{ book['pealkiri'] }}</h3>
-              <p class="justify-start">{{ book['autor'] }}</p>
+          <v-list-item class="justify-start">
+            <div>
+              <h6 class="text-h6">{{ book['pealkiri'] }}</h6>
+              <p class="text-subtitle-1">{{ book['autor'] }}</p>
             </div>
           </v-list-item>
-          <v-list-item class="flex-column justify-center">
-            <p>Saadavus: {{ book['saadavus'] }} tk</p>
-            <v-btn
-              color="primary"
-              elevation="2"
-              class="justify-end"
-            >osta
-            </v-btn>
+          <v-list-item class="justify-end">
+            <div class="text-right">
+              <p class="text-subtitle-1">Saadavus: {{ book['saadavus'] }} tk</p>
+              <v-btn
+                color="primary"
+                elevation="2"
+              >osta
+              </v-btn>
+            </div>
           </v-list-item>
         </v-list>
       </div>
