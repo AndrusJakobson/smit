@@ -6,6 +6,7 @@
         class="data-table"
         :headers="headers"
         :items="books"
+        mobile-breakpoint="0"
         hide-default-footer
         hide-default-header
       >
@@ -38,6 +39,8 @@
 </template>
 <script>
 
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -51,13 +54,16 @@ export default {
     }
   },
   mounted() {
-    this.$axios.get('raamatud').then(res => {
-      if (res && res.data) {
-        this.books = res.data;
-      }
-    })
+    this.getBooks();
   },
   methods: {
+    getBooks() {
+      const promise = axios.get(this.imageBaseUrl + 'raamatud').then(res => {
+        if (res && res.data) {
+          this.books = res.data;
+        }
+      });
+    },
     buyBook(book) {
       console.log('Osta: ' + book.pealkiri);
     }
