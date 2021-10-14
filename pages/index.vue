@@ -58,9 +58,8 @@ export default {
   },
   methods: {
     getBooks() {
-      const promise = axios.get(this.imageBaseUrl + 'raamatud').then(res => {
+      axios.get(this.imageBaseUrl + 'raamatud').then(res => {
         if (res && res.status === 200 && res.data) {
-          console.log(res);
           this.books = res.data;
         }
       });
